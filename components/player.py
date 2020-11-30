@@ -18,9 +18,14 @@ class Player(pygame.sprite.Sprite):
         self.rect.centery = SCREEN_HEIGHT/2
 
     def update(self):
-        key = pygame.key.get_pressed()
-        if key[pygame.K_RIGHT]:
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_RIGHT]:
+            self.rect= self.rect.move(1, 0)
             self.rect.x += 5
-        if self.rect.right >= SCREEN_WIDTH:
-            self.rect.right = SCREEN_WIDTH
-
+            if self.rect.right >= SCREEN_WIDTH:
+                self.rect.right = SCREEN_WIDTH
+        if keys[pygame.K_LEFT]:
+            self.rect = self.rect.move(-1, 0)
+            self.rect.x -= 5
+        if self.rect.left >= SCREEN_WIDTH:
+            self.rect.left = SCREEN_WIDTH
