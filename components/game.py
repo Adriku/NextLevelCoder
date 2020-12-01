@@ -32,8 +32,8 @@ class Game:
 
     def create_components(self):
         self.all_sprites = pygame.sprite.Group()
-        player = Player()
-        self.all_sprites.add(player)
+        self.player = Player(self)
+        self.all_sprites.add(self.player)
 
         balls = pygame.sprite.Group()
         ball = Ball()
